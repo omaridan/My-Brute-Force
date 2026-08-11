@@ -50,7 +50,9 @@ Document what you did
 Adjust strategies and tools based on what worked or didn’t.
 Anything we could have done to prevent the thing we hunted for? Any way we could have improved our hunting process?
 
-# KQL Queries used in Findings 
+
+
+# KQL Queries used in Findings  - I Used Microsoft Defender (Advanced Hunting)
 
 ## // Check most failed logons
 
