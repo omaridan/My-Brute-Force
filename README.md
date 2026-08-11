@@ -52,7 +52,7 @@ Anything we could have done to prevent the thing we hunted for? Any way we could
 
 # KQL Queries used in Findings 
 
-// Check most failed logons
+## // Check most failed logons
 
 DeviceLogonEvents
 
@@ -68,7 +68,7 @@ DeviceLogonEvents
 
 
 
-// Take the top 10 IPs with the most logon failures and see if any succeeded to logon
+## // Take the top 10 IPs with the most logon failures and see if any succeeded to logon
 
 let RemoteIPsInQuestion = dynamic(["119.42.115.235","183.81.169.238", "74.39.190.50", "121.30.214.172", "83.222.191.62", "45.41.204.12", "192.109.240.116"]);
 
@@ -82,9 +82,9 @@ DeviceLogonEvents
 
 
 
-// Look for any remote IP addresses who have had both successful and failed logons
+## // Look for any remote IP addresses who have had both successful and failed logons
 
-// Investigate for potential brute force successes
+## // Investigate for potential brute force successes
 
 let FailedLogons = DeviceLogonEvents
 
