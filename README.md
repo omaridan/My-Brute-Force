@@ -53,12 +53,19 @@ Anything we could have done to prevent the thing we hunted for? Any way we could
 # KQL Queries used in Findings 
 
 // Check most failed logons
+
 DeviceLogonEvents
+
 | where LogonType has_any("Network", "Interactive", "RemoteInteractive", "Unlock")
+
 | where ActionType == "LogonFailed"
+
 | where isnotempty(RemoteIP)
+
 | summarize Attempts = count() by ActionType, RemoteIP, DeviceName
+
 | order by Attempts
+
 
 
 // Take the top 10 IPs with the most logon failures and see if any succeeded to logon
