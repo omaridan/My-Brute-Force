@@ -69,27 +69,50 @@ DeviceLogonEvents
 
 
 // Take the top 10 IPs with the most logon failures and see if any succeeded to logon
+
 let RemoteIPsInQuestion = dynamic(["119.42.115.235","183.81.169.238", "74.39.190.50", "121.30.214.172", "83.222.191.62", "45.41.204.12", "192.109.240.116"]);
+
 DeviceLogonEvents
+
 | where LogonType has_any("Network", "Interactive", "RemoteInteractive", "Unlock")
+
 | where ActionType == "LogonSuccess"
+
 | where RemoteIP has_any(RemoteIPsInQuestion)
 
 
+
 // Look for any remote IP addresses who have had both successful and failed logons
+
 // Investigate for potential brute force successes
+
 let FailedLogons = DeviceLogonEvents
+
 | where LogonType has_any("Network", "Interactive", "RemoteInteractive", "Unlock")
+
 | where ActionType == "LogonFailed"
+
 | where isnotempty(RemoteIP)
+
 | summarize FailedLogonAttempts = count() by ActionType, RemoteIP, DeviceName
+
 | order by FailedLogonAttempts;
+
 let SuccessfulLogons =  DeviceLogonEvents
+
 | where LogonType has_any("Network", "Interactive", "RemoteInteractive", "Unlock")
+
 | where ActionType == "LogonSuccess"
+
 | where isnotempty(RemoteIP)
+
 | summarize SuccessfulLogons = count() by ActionType, RemoteIP, DeviceName, AccountName
+
 | order by SuccessfulLogons;
+
 FailedLogons
+
 | join SuccessfulLogons on RemoteIP
+
 | project RemoteIP, DeviceName, FailedLogonAttempts, SuccessfulLogons, AccountName
+
