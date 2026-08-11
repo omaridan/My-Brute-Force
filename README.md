@@ -17,7 +17,7 @@ Ensure the relevant tables contain recent logs:
 DeviceInfo
 DeviceLogonEvents
 
-## 3. Data Analysis
+# 3. Data Analysis
 ## Goal: Analyze data to test your hypothesis.
 
 🚨Activity:
@@ -25,26 +25,26 @@ Look for anomalies, patterns, or indicators of compromise (IOCs) using various t
 Is there any evidence of brute force success (many failed logins followed by a success?) on your VM or ANY VMs in the environment?
 If so, what else happened on that machine around the same time? Were any bad actors able to log in?
 
-# 5. Investigation
+# 4. Investigation
 ## Goal: Investigate any suspicious findings.
 
 🚨Activity:
 Dig deeper into detected threats, determine their scope, and escalate if necessary. See if anything you find matches TTPs within the MITRE ATT&CK Framework.
 You can use ChatGPT to figure this out by pasting/uploading the logs: Scenario 1: TTPs
 
-## 6. Response
+# 5. Response
 # Goal: Mitigate any confirmed threats.
 🚨Activity: 
 Work with security teams to contain, remove, and recover from the threat.
 Can anything be done?
 
-# 7. Documentation
+# 6. Documentation
 ## Goal: Record your findings and learn from them.
 🚨Activity:
 Document what you found and use it to improve future hunts and defenses.
 Document what you did
 
-# 8. Improvement
+# 7. Improvement
 ## Goal: Improve your security posture or refine your methods for the next hunt. 
 🚨Activity:
 Adjust strategies and tools based on what worked or didn’t.
